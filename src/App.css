@@ -1,0 +1,38 @@
+* {
+  color: #333333;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16pt;
+  font-style: normal;
+}
+
+/* ---BUTTON--- */
+.nav-button {
+  background-color: #696049;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 25px;
+  font-size: large;
+}
+
+/* ---HEADER--- */
+.apartment-logo {
+  height: 5rem;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fbfbfb;
+  padding: 0.5rem;
+}
+.nav-link {
+  padding: 1rem !important;
+}
+.nav-link:hover {
+  color: #696049 !important;
+}
+.nav-link-group {
+  display: flex;
+  align-items: center;
+}
