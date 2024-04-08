@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Apartment Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+April 2024
 
-## Available Scripts
+This is an instructional project for LEARN Academy, a web development bootcamp. The purpose of this application is to allow students to make a decoupled full-stack application with user authentication and authorization. The frontend is a React app that makes requests to a separate Rails API using JWT for authentication. The Rails API uses Devise for authentication and authorization.
 
-In the project directory, you can run:
+### 🏡 Apartment App Project Description
 
-### `yarn start`
+Apartment App is a decoupled, full-stack application in React with a Ruby on Rails API that lists apartments available for rent. A visiting user of the application can see a list and of all available apartments. A visiting user can select one apartment and see more details. To list an apartment for rent, a user can create an account and log into the application. A logged in user can add a new apartment and see a list of all their apartments with the ability to edit or delete their own listings.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ⚡️ Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+First clone the repository. Then within the root of the project directory, run:
 
-### `yarn test`
+```bash
+yarn
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🏁 Start the App
 
-### `yarn build`
+```bash
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🤝 Application Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React Router DOM](https://reactrouter.com/en/main)
+- [Reactstrap](https://deploy-preview-2356--reactstrap.netlify.app/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🚗 Testing
 
-### `yarn eject`
+To run the existing React Testing Library testing suite, run:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+yarn test
+```
