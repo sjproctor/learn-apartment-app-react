@@ -14,7 +14,7 @@ test("renders Header component logo and appropriate links", () => {
 
   const availableApartmentLink = screen.getByText(/available apartments/i)
   expect(availableApartmentLink).toBeInTheDocument()
-  expect(availableApartmentLink.getAttribute("href")).toBe("/")
+  expect(availableApartmentLink.getAttribute("href")).toBe("/apartments")
 
   const signInLink = screen.getByText(/sign in/i)
   expect(signInLink).toBeInTheDocument()
