@@ -4,7 +4,7 @@ import key from "../assets/key.png"
 
 const NotFound = () => {
   return (
-    <div className="page-body center-content">
+    <div className="center-content page-height">
       <h2 className="title-header">Oops, Wrong Address!</h2>
       <NavButton url="/" buttonContent="Back Home" />
       <div>

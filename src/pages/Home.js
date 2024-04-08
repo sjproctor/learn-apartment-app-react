@@ -3,7 +3,7 @@ import apartments from "../assets/jan-jakub-nanista-unsplash.jpg"
 
 const Home = () => {
   return (
-    <div className="page-body center-content">
+    <div className="center-content">
       <h1 className="title-header">Home Sweet Home.</h1>
       <img
         src={apartments}

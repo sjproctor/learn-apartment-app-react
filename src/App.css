@@ -9,12 +9,11 @@
 .center-content {
   text-align: center;
 }
-.page-body {
-  margin-bottom: 2rem;
-  height: 60vh;
-}
 .title-header {
   padding: 0.5rem;
+}
+.page-height {
+  height: 80vh;
 }
 
 /* ---BUTTON--- */
@@ -28,6 +27,7 @@
 
 /* ---FOOTER--- */
 footer {
+  background-color: white;
   padding: 0.5rem;
 }
 .footer-content {
@@ -37,6 +37,9 @@ footer {
 }
 .footer-logo {
   height: 3rem;
+}
+.footer-text {
+  margin: 0;
 }
 
 /* ---HEADER--- */

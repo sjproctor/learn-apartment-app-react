@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <hr />
       <div className="footer-content">
-        <p>&copy; 2024 Sarah Proctor | LEARN Academy</p>
+        <p className="footer-text">&copy; 2024 Sarah Proctor | LEARN Academy</p>
         <NavLink to="/">
           <img
             src={footerLogo}
