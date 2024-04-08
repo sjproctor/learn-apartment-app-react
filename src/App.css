@@ -16,6 +16,23 @@
   font-size: large;
 }
 
+/* ---FOOTER--- */
+footer {
+  background-color: white;
+  bottom: 0;
+  padding: 0.5rem;
+  position: fixed;
+  width: 100%;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-logo {
+  height: 3rem;
+}
+
 /* ---HEADER--- */
 .apartment-logo {
   height: 5rem;

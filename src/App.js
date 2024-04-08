@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
+import { Routes, Route } from "react-router-dom"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import Home from "./pages/Home"
+import NotFound from "./pages/NotFound"
+import "./App.css"
+import mockApartments from "./mockApartments.js"
+import mockUsers from "./mockUsers.js"
 
-function App() {
+const App = () => {
+  const [apartments, setApartments] = useState(mockApartments)
+  const [users, setUsers] = useState(mockUsers[0])
+  console.log(apartments)
+  console.log(users)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      {/* <Routes>
+        <Home />
+        <NotFound />
+      </Routes> */}
+      <Footer />
+    </>
+  )
 }
 
-export default App;
+export default App
