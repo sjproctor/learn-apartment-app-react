@@ -27,6 +27,13 @@ yarn start
 - [React Router DOM](https://reactrouter.com/en/main)
 - [Reactstrap](https://deploy-preview-2356--reactstrap.netlify.app/)
 
+### 💄 Styling Notations
+
+- light blue: `#00bfea`
+- tan: `#DFCBB2`
+- olive: `#696049`
+- black: `#333333`
+
 ### 🚗 Testing
 
 To run the existing React Testing Library testing suite, run:
