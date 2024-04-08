@@ -16,10 +16,10 @@ const App = () => {
   return (
     <>
       <Header />
-      {/* <Routes>
-        <Home />
-        <NotFound />
-      </Routes> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <NotFound /> */}
+      </Routes>
       <Footer />
     </>
   )
