@@ -13,7 +13,7 @@ const ApartmentIndex = ({ apartments }) => {
                 <img
                   alt="sneak peek of the apartment"
                   src={apartment.image}
-                  className="apartment-image"
+                  className="index-apartment-image"
                 />
               </div>
               <div>
@@ -22,7 +22,7 @@ const ApartmentIndex = ({ apartments }) => {
                 </h6>
                 <h6>{apartment.bedrooms} bedrooms</h6>
                 <NavButton
-                  url={`/apartment-show/${apartment.id}`}
+                  url={`/apartment/${apartment.id}`}
                   buttonContent="See More"
                 />
               </div>
