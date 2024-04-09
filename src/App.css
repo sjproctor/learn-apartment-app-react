@@ -23,6 +23,7 @@
   color: white;
   padding: 10px 25px;
   font-size: large;
+  margin: 0.5rem;
 }
 
 /* ---FOOTER--- */
@@ -87,11 +88,26 @@ footer {
   max-height: 250px;
   overflow: hidden;
 }
-.apartment-image {
+.index-apartment-image {
   width: 17rem;
 }
 
 /* ---NOT FOUND--- */
 .not-found-key-image {
   height: 10rem;
+}
+
+/* ---SHOW--- */
+.show-apartment {
+  display: flex;
+  justify-content: space-between;
+}
+.show-apartment-image {
+  width: 50vw;
+}
+.apartment-details {
+  margin: 2rem;
+}
+.icon {
+  padding: 0 10px;
 }
