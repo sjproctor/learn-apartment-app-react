@@ -43,6 +43,11 @@ footer {
   margin: 0;
 }
 
+/* ---FORM--- */
+.form-validations {
+  color: red;
+}
+
 /* ---HEADER--- */
 .apartment-logo {
   height: 5rem;
@@ -110,4 +115,9 @@ footer {
 }
 .icon {
   padding: 0 10px;
+}
+
+/* ---SIGN IN--- */
+.sign-in-form {
+  margin: 0 10rem;
 }

@@ -19,10 +19,10 @@ const Header = () => {
         <NavLink to="/apartments" className="nav-link">
           Available Apartments
         </NavLink>
-        <NavLink to="/" className="nav-link">
+        <NavLink to="/signin" className="nav-link">
           Sign In
         </NavLink>
-        <NavButton url="/" buttonContent="Sign Up" />
+        <NavButton url="/signup" buttonContent="Sign Up" />
       </div>
     </nav>
   )

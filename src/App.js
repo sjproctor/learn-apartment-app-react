@@ -9,13 +9,21 @@ import NotFound from "./pages/NotFound"
 import "./App.css"
 import mockApartments from "./mockApartments.js"
 import mockUsers from "./mockUsers.js"
+import SignIn from "./pages/SignIn.js"
+import SignUp from "./pages/SignUp.js"
 
 const App = () => {
   const [apartments, setApartments] = useState(mockApartments)
-  const [user, setUser] = useState(mockUsers[0])
+  const [user, setUser] = useState(null)
 
   const deleteApartment = (id) => {
     console.log(id)
+  }
+  const handleSignIn = (user) => {
+    console.log(user)
+  }
+  const handleSignUp = (user) => {
+    console.log(user)
   }
 
   return (
@@ -36,6 +44,14 @@ const App = () => {
               user={user}
             />
           }
+        />
+        <Route
+          path="/signin"
+          element={<SignIn handleSignIn={handleSignIn} />}
+        />
+        <Route
+          path="/signup"
+          element={<SignUp handleSignUp={handleSignUp} />}
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
