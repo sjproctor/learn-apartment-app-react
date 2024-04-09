@@ -27,6 +27,7 @@ yarn start
 - [React Router DOM](https://reactrouter.com/en/main)
 - [Reactstrap](https://deploy-preview-2356--reactstrap.netlify.app/)
 - [React Icons](https://react-icons-v2.vercel.app/)
+- [React Form](https://react-hook-form.com/get-started)
 
 ### 💄 Styling Notations
 
