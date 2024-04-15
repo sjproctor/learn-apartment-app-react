@@ -47,6 +47,10 @@ footer {
 .form-validations {
   color: red;
 }
+.form-size {
+  width: 50vw;
+  margin: 0 auto;
+}
 
 /* ---HEADER--- */
 .apartment-logo {
@@ -105,7 +109,6 @@ footer {
 /* ---SHOW--- */
 .show-apartment {
   display: flex;
-  justify-content: space-between;
 }
 .show-apartment-image {
   width: 50vw;
@@ -117,7 +120,22 @@ footer {
   padding: 0 10px;
 }
 
-/* ---SIGN IN--- */
-.sign-in-form {
-  margin: 0 10rem;
+@media (max-width: 900px) {
+  .form-size {
+    width: 80vw;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 650px) {
+  .form-size {
+    width: 95vw;
+    margin: 0 auto;
+  }
+  .show-apartment-image {
+    width: 100%;
+  }
+  .show-apartment {
+    display: block;
+  }
 }
