@@ -37,7 +37,7 @@ test("renders ApartmentNew component", () => {
   const bathrooms = screen.getByLabelText(/Bathrooms/)
   expect(bathrooms).toBeInTheDocument()
 
-  const pets = screen.getByLabelText(/Pets/)
+  const pets = screen.getByLabelText(/Pet Policy/)
   expect(pets).toBeInTheDocument()
 
   const image = screen.getByLabelText(/Image URL/)

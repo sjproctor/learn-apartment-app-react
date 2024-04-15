@@ -175,7 +175,7 @@ const ApartmentNew = ({ createApartment, user }) => {
           </Col>
         </Row>
         <FormGroup>
-          <Label for="pets">Pets</Label>
+          <Label for="pets">Pet Policy</Label>
           <input
             id="pets"
             name="pets"
