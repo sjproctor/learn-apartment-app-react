@@ -15,6 +15,9 @@
 .page-height {
   height: 80vh;
 }
+.blank-page-height {
+  height: 60vh;
+}
 
 /* ---BUTTON--- */
 .nav-button {
@@ -99,6 +102,10 @@ footer {
 }
 .index-apartment-image {
   width: 17rem;
+}
+
+/* ---MY APARTMENTS--- */
+.my-apartments {
 }
 
 /* ---NOT FOUND--- */

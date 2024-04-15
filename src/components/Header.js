@@ -18,6 +18,11 @@ const Header = ({ signOut, user }) => {
         <NavLink to="/apartments" className="nav-link">
           Available Apartments
         </NavLink>
+        {user && (
+          <NavLink to="/my-apartments" className="nav-link">
+            My Apartments
+          </NavLink>
+        )}
         {!user && (
           <NavLink to="/signin" className="nav-link">
             Sign In

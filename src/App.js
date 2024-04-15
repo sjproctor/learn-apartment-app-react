@@ -5,6 +5,7 @@ import Header from "./components/Header"
 import ApartmentIndex from "./pages/ApartmentIndex.js"
 import ApartmentShow from "./pages/ApartmentShow.js"
 import Home from "./pages/Home"
+import MyApartments from "./pages/MyApartments"
 import NotFound from "./pages/NotFound"
 import SignIn from "./pages/SignIn.js"
 import SignUp from "./pages/SignUp.js"
@@ -14,7 +15,13 @@ import mockApartments from "./mockApartments.js"
 const App = () => {
   const [apartments, setApartments] = useState(mockApartments)
   const [user, setUser] = useState(null)
-  console.log(user)
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user")
+    if (loggedInUser) {
+      setUser(JSON.parse(loggedInUser))
+    }
+  }, [])
 
   const signIn = async (user) => {
     try {
@@ -88,6 +95,12 @@ const App = () => {
           path="/apartments"
           element={<ApartmentIndex apartments={apartments} />}
         />
+        {user && (
+          <Route
+            path="/my-apartments"
+            element={<MyApartments apartments={apartments} user={user} />}
+          />
+        )}
         <Route
           path="/apartment/:id"
           element={<ApartmentShow apartments={apartments} />}
