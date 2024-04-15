@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
+import ApartmentEdit from "./pages/ApartmentEdit.js"
 import ApartmentIndex from "./pages/ApartmentIndex.js"
+import ApartmentNew from "./pages/ApartmentNew.js"
 import ApartmentShow from "./pages/ApartmentShow.js"
 import Home from "./pages/Home"
 import MyApartments from "./pages/MyApartments"
@@ -85,6 +87,16 @@ const App = () => {
       console.log("Error fetching log out data")
     }
   }
+  const createApartment = (apartment) => {
+    console.log(apartment)
+  }
+  const editApartment = (apartment, id) => {
+    console.log(apartment)
+    console.log(id)
+  }
+  const deleteApartment = (id) => {
+    console.log(id)
+  }
 
   return (
     <>
@@ -98,7 +110,33 @@ const App = () => {
         {user && (
           <Route
             path="/my-apartments"
-            element={<MyApartments apartments={apartments} user={user} />}
+            element={
+              <MyApartments
+                apartments={apartments}
+                deleteApartment={deleteApartment}
+                user={user}
+              />
+            }
+          />
+        )}
+        {user && (
+          <Route
+            path="/apartment-new"
+            element={
+              <ApartmentNew createApartment={createApartment} user={user} />
+            }
+          />
+        )}
+        {user && (
+          <Route
+            path="/apartment-edit/:id"
+            element={
+              <ApartmentEdit
+                apartments={apartments}
+                editApartment={editApartment}
+                user={user}
+              />
+            }
           />
         )}
         <Route
