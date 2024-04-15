@@ -14,6 +14,9 @@ test("renders Home component", () => {
   const homeTitleText = screen.getByText(/Home Sweet Home/)
   expect(homeTitleText).toBeInTheDocument()
 
+  const listingsButton = screen.getByText(/See Listings/)
+  expect(listingsButton).toBeInTheDocument()
+
   const heroImage = screen.getByAltText(
     "tiled pattern of blue windows on a tan building"
   )
