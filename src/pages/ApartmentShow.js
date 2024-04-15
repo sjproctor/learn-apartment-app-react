@@ -1,19 +1,14 @@
 import NavButton from "../components/NavButton"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { FaBed } from "react-icons/fa"
 import { FaDog } from "react-icons/fa6"
 import { FaHouse } from "react-icons/fa6"
 import { ImLocation2 } from "react-icons/im"
 
-const ApartmentShow = ({ apartments, deleteApartment, user }) => {
-  const navigate = useNavigate()
+const ApartmentShow = ({ apartments }) => {
   const { id } = useParams()
   const apartment = apartments.find((item) => item.id === +id)
 
-  const handleDeleteApartment = () => {
-    deleteApartment(apartment.id)
-    navigate("/apartments")
-  }
   return (
     <>
       <h3 className="title-header center-content">Apartment Details</h3>
@@ -56,17 +51,6 @@ const ApartmentShow = ({ apartments, deleteApartment, user }) => {
       </div>
       <br />
       <div className="center-content">
-        {user && (
-          <NavButton
-            url={`/apartment-edit/${apartment.id}`}
-            buttonContent="Edit Apartment"
-          />
-        )}
-        {user && (
-          <button className="nav-button" onClick={handleDeleteApartment}>
-            Delete Apartment
-          </button>
-        )}
         <NavButton url="/apartments" buttonContent="Back to All Apartments" />
       </div>
     </>

@@ -9,7 +9,7 @@ import { ImLocation2 } from "react-icons/im"
 const myApartments = ({ apartments, user, deleteApartment }) => {
   const myApartments = apartments.filter((apt) => apt.user_id === user.id)
   const handleDeleteApartment = () => {
-    deleteApartment()
+    deleteApartment(user.id)
   }
   return (
     <div className="page-body center-content">
@@ -24,9 +24,9 @@ const myApartments = ({ apartments, user, deleteApartment }) => {
             />
           </NavLink>
           <h5>You don't have any apartments listed.</h5>
-          <NavButton url="/apartment-new" buttonContent="add an apartment" />
         </div>
       )}
+      <NavButton url="/apartment-new" buttonContent="add an apartment" />
       <div className="index-cards-set">
         {myApartments.map((apartment) => {
           return (
@@ -68,7 +68,7 @@ const myApartments = ({ apartments, user, deleteApartment }) => {
                   Pet policy: {apartment.pets}
                 </p>
                 <NavButton
-                  url={`/apartment-edit/${myApartments.id}`}
+                  url={`/apartment-edit/${apartment.id}`}
                   buttonContent="edit"
                 />
                 <button className="nav-button" onClick={handleDeleteApartment}>

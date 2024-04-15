@@ -1,8 +1,14 @@
 import NavButton from "../components/NavButton"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import apartmentLogo from "../assets/apartment-logo.png"
 
 const Header = ({ signOut, user }) => {
+  const navigate = useNavigate()
+
+  const handleSignOut = () => {
+    signOut()
+    navigate("/")
+  }
   return (
     <nav className="header-nav">
       <div>
@@ -30,7 +36,7 @@ const Header = ({ signOut, user }) => {
         )}
         {!user && <NavButton url="/signup" buttonContent="Sign Up" />}
         {user && (
-          <button className="nav-button" onClick={signOut}>
+          <button className="nav-button" onClick={handleSignOut}>
             Sign Out
           </button>
         )}
