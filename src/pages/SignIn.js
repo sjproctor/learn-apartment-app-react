@@ -22,7 +22,7 @@ const SignIn = ({ signIn }) => {
   return (
     <div className="page-body page-height">
       <h3 className="title-header center-content">Sign In</h3>
-      <Form onSubmit={handleSubmit(onSubmit)} className="form-size">
+      <Form onSubmit={handleSubmit(onSubmit)} className="auth-form">
         <FormGroup>
           <Label for="email">Enter Your Email</Label>
           <input
