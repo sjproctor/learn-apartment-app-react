@@ -2,23 +2,27 @@ import { useForm } from "react-hook-form"
 import { Form, FormGroup, Label } from "reactstrap"
 import { useNavigate } from "react-router-dom"
 
-const SignIn = ({ handleSignIn }) => {
+const SignIn = ({ signIn }) => {
   const navigate = useNavigate()
+  const preloadedValues = {
+    email: "test1@example.com",
+    password: "password"
+  }
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm()
+  } = useForm({ defaultValues: preloadedValues })
 
-  const onSubmit = (user) => {
-    handleSignIn(user)
+  const onSubmit = (formData) => {
+    signIn({ user: formData })
     navigate("/")
   }
 
   return (
     <div className="page-body page-height">
       <h3 className="title-header center-content">Sign In</h3>
-      <Form onSubmit={handleSubmit(onSubmit)} className="sign-in-form">
+      <Form onSubmit={handleSubmit(onSubmit)} className="form-size">
         <FormGroup>
           <Label for="email">Enter Your Email</Label>
           <input

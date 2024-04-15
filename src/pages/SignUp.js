@@ -2,23 +2,28 @@ import { useForm } from "react-hook-form"
 import { Form, FormGroup, Label } from "reactstrap"
 import { useNavigate } from "react-router-dom"
 
-const SignUp = ({ handleSignUp }) => {
+const SignUp = ({ signUp }) => {
   const navigate = useNavigate()
+  const preloadedValues = {
+    email: "test@example.com",
+    password: "password",
+    password_confirmation: "password"
+  }
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm()
+  } = useForm({ defaultValues: preloadedValues })
 
-  const onSubmit = (user) => {
-    handleSignUp(user)
+  const onSubmit = (newUser) => {
+    signUp({ user: newUser })
     navigate("/")
   }
 
   return (
     <div className="page-body page-height">
       <h3 className="title-header center-content">Create an Account</h3>
-      <Form onSubmit={handleSubmit(onSubmit)} className="sign-in-form">
+      <Form onSubmit={handleSubmit(onSubmit)} className="form-size">
         <FormGroup>
           <Label for="email">Enter Your Email</Label>
           <input
@@ -48,14 +53,14 @@ const SignUp = ({ handleSignUp }) => {
           )}
         </FormGroup>
         <FormGroup>
-          <Label for="password">Password Confirmation</Label>
+          <Label for="password_confirmation">Password Confirmation</Label>
           <input
-            id="confirmation"
-            name="confirmation"
+            id="password_confirmation"
+            name="password_confirmation"
             placeholder="Password Confirmation"
             type="password"
             className="form-control"
-            {...register("confirmation", { required: true })}
+            {...register("password_confirmation", { required: true })}
           />
           {errors.confirmation && (
             <span className="form-validations">

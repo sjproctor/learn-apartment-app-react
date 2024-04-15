@@ -1,9 +1,8 @@
-import React from "react"
 import NavButton from "../components/NavButton"
 import { NavLink } from "react-router-dom"
 import apartmentLogo from "../assets/apartment-logo.png"
 
-const Header = () => {
+const Header = ({ signOut, user }) => {
   return (
     <nav className="header-nav">
       <div>
@@ -19,10 +18,17 @@ const Header = () => {
         <NavLink to="/apartments" className="nav-link">
           Available Apartments
         </NavLink>
-        <NavLink to="/signin" className="nav-link">
-          Sign In
-        </NavLink>
-        <NavButton url="/signup" buttonContent="Sign Up" />
+        {!user && (
+          <NavLink to="/signin" className="nav-link">
+            Sign In
+          </NavLink>
+        )}
+        {!user && <NavButton url="/signup" buttonContent="Sign Up" />}
+        {user && (
+          <button className="nav-button" onClick={signOut}>
+            Sign Out
+          </button>
+        )}
       </div>
     </nav>
   )
