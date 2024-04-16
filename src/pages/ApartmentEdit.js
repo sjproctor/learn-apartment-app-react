@@ -1,23 +1,24 @@
+import NavButton from "../components/NavButton"
 import { useForm } from "react-hook-form"
 import { Col, Form, FormGroup, Label, Row } from "reactstrap"
 import { useNavigate, useParams } from "react-router-dom"
 
-const ApartmentEdit = ({ apartments, editApartment, user }) => {
+const ApartmentEdit = ({ apartments, updateApartment, user }) => {
   const navigate = useNavigate()
   const { id } = useParams()
   const apartment = apartments.find((item) => item.id === +id)
 
   const preloadedValues = {
-    street: apartment.street,
-    unit: apartment.unit,
-    city: apartment.city,
-    state: apartment.state,
-    square_footage: apartment.square_footage,
-    price: apartment.price,
-    bedrooms: apartment.bedrooms,
-    bathrooms: apartment.bathrooms,
-    pets: apartment.pets,
-    image: apartment.image,
+    street: apartment?.street,
+    unit: apartment?.unit,
+    city: apartment?.city,
+    state: apartment?.state,
+    square_footage: apartment?.square_footage,
+    price: apartment?.price,
+    bedrooms: apartment?.bedrooms,
+    bathrooms: apartment?.bathrooms,
+    pets: apartment?.pets,
+    image: apartment?.image,
     user_id: user.id
   }
   const {
@@ -27,7 +28,7 @@ const ApartmentEdit = ({ apartments, editApartment, user }) => {
   } = useForm({ defaultValues: preloadedValues })
 
   const onSubmit = (editedApartment) => {
-    editApartment(editedApartment, user.id)
+    updateApartment(editedApartment, apartment.id)
     navigate("/my-apartments")
   }
 
@@ -48,7 +49,7 @@ const ApartmentEdit = ({ apartments, editApartment, user }) => {
                 {...register("street", { required: true })}
               />
               {errors.street && (
-                <span className="form-validations">Address is required</span>
+                <span className="form-validations">Street is required</span>
               )}
             </FormGroup>
           </Col>
@@ -208,6 +209,7 @@ const ApartmentEdit = ({ apartments, editApartment, user }) => {
           <button onClick={handleSubmit} className="nav-button">
             Submit
           </button>
+          <NavButton url="/my-apartments" buttonContent="Back to Listing" />
         </div>
       </Form>
     </div>
