@@ -1,15 +1,19 @@
 import NavButton from "../components/NavButton"
 import footerLogo from "../assets/footer-logo.png"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { FaBed } from "react-icons/fa"
 import { FaDog } from "react-icons/fa6"
 import { FaHouse } from "react-icons/fa6"
 import { ImLocation2 } from "react-icons/im"
 
-const myApartments = ({ apartments, user, deleteApartment }) => {
+const MyApartments = ({ apartments, user, deleteApartment }) => {
+  const navigate = useNavigate()
   const myApartments = apartments.filter((apt) => apt.user_id === user.id)
-  const handleDeleteApartment = () => {
-    deleteApartment(user.id)
+
+  const handleDeleteApartment = (id) => {
+    alert("Are you sure you want to delete this apartment?")
+    deleteApartment(id)
+    navigate("/my-apartments")
   }
   return (
     <div className="page-body center-content">
@@ -28,7 +32,7 @@ const myApartments = ({ apartments, user, deleteApartment }) => {
       )}
       <NavButton url="/apartment-new" buttonContent="add an apartment" />
       <div className="index-cards-set">
-        {myApartments.map((apartment) => {
+        {myApartments?.map((apartment) => {
           return (
             <div key={apartment.id} className="card">
               <div className="index-profile-image">
@@ -71,7 +75,10 @@ const myApartments = ({ apartments, user, deleteApartment }) => {
                   url={`/apartment-edit/${apartment.id}`}
                   buttonContent="edit"
                 />
-                <button className="nav-button" onClick={handleDeleteApartment}>
+                <button
+                  className="nav-button"
+                  onClick={() => handleDeleteApartment(apartment.id)}
+                >
                   delete
                 </button>
               </div>
@@ -83,4 +90,4 @@ const myApartments = ({ apartments, user, deleteApartment }) => {
   )
 }
 
-export default myApartments
+export default MyApartments
