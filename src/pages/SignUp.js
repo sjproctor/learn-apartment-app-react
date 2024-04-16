@@ -4,16 +4,12 @@ import { useNavigate } from "react-router-dom"
 
 const SignUp = ({ signUp }) => {
   const navigate = useNavigate()
-  const preloadedValues = {
-    email: "test@example.com",
-    password: "password",
-    password_confirmation: "password"
-  }
+
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm({ defaultValues: preloadedValues })
+  } = useForm()
 
   const onSubmit = (newUser) => {
     signUp({ user: newUser })
