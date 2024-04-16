@@ -12,13 +12,13 @@ import NotFound from "./pages/NotFound"
 import SignIn from "./pages/SignIn.js"
 import SignUp from "./pages/SignUp.js"
 import "./App.css"
-import mockApartments from "./mockApartments.js"
 
 const App = () => {
-  const [apartments, setApartments] = useState(mockApartments)
+  const [apartments, setApartments] = useState([])
   const [user, setUser] = useState(null)
 
   useEffect(() => {
+    getApartments()
     const loggedInUser = localStorage.getItem("user")
     if (loggedInUser) {
       setUser(JSON.parse(loggedInUser))
@@ -43,7 +43,7 @@ const App = () => {
       localStorage.setItem("user", JSON.stringify(payload))
       setUser(payload)
     } catch (error) {
-      console.log("Error fetching sign in data")
+      console.error("Error fetching user sign in request")
     }
   }
   const signUp = async (user) => {
@@ -64,7 +64,7 @@ const App = () => {
       localStorage.setItem("user", JSON.stringify(payload))
       setUser(payload)
     } catch (error) {
-      console.log("Error fetching sign up data")
+      console.error("Error fetching user sign up request")
     }
   }
   const signOut = async () => {
@@ -84,18 +84,75 @@ const App = () => {
       localStorage.removeItem("token")
       localStorage.removeItem("user")
     } catch (error) {
-      console.log("Error fetching log out data")
+      console.error("Error fetching user sign out request")
     }
   }
-  const createApartment = (apartment) => {
-    console.log(apartment)
+  const getApartments = async () => {
+    try {
+      const getResponse = await fetch("http://localhost:3000/apartments")
+      if (!getResponse.ok) {
+        throw new Error(getResponse.errors)
+      }
+      const getResult = await getResponse.json()
+      setApartments(getResult)
+    } catch (error) {
+      console.error("Error fetching apartment get request")
+    }
   }
-  const editApartment = (apartment, id) => {
-    console.log(apartment)
-    console.log(id)
+  const createApartment = async (apartment) => {
+    try {
+      const postResponse = await fetch("http://localhost:3000/apartments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(apartment)
+      })
+      if (!postResponse.ok) {
+        throw new Error(postResponse.errors)
+      }
+      await postResponse.json()
+      getApartments()
+    } catch (error) {
+      console.error("Error fetching post data")
+    }
   }
-  const deleteApartment = (id) => {
-    console.log(id)
+  const updateApartment = async (apartment, id) => {
+    try {
+      const editResponse = await fetch(
+        `http://localhost:3000/apartments/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(apartment)
+        }
+      )
+      if (!editResponse.ok) {
+        throw new Error(editResponse.errors)
+      }
+      await editResponse.json()
+      getApartments()
+    } catch (error) {
+      console.error("Error fetching apartment update request")
+    }
+  }
+  const deleteApartment = async (id) => {
+    try {
+      const deleteResponse = await fetch(
+        `http://localhost:3000/apartments/${id}`,
+        {
+          method: "DELETE"
+        }
+      )
+      if (!deleteResponse.ok) {
+        throw new Error(deleteResponse.errors)
+      }
+      getApartments()
+    } catch (error) {
+      console.error("Error fetching apartment delete request")
+    }
   }
 
   return (
@@ -133,7 +190,7 @@ const App = () => {
             element={
               <ApartmentEdit
                 apartments={apartments}
-                editApartment={editApartment}
+                updateApartment={updateApartment}
                 user={user}
               />
             }
