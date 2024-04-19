@@ -1,9 +1,7 @@
 import { useForm } from "react-hook-form"
 import { Form, FormGroup, Label } from "reactstrap"
-import { useNavigate } from "react-router-dom"
 
 const SignIn = ({ signIn }) => {
-  const navigate = useNavigate()
   const preloadedValues = {
     email: "test1@example.com",
     password: "password"
@@ -16,7 +14,6 @@ const SignIn = ({ signIn }) => {
 
   const onSubmit = (formData) => {
     signIn({ user: formData })
-    navigate("/")
   }
 
   return (

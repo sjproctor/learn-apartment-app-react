@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import ApartmentEdit from "./pages/ApartmentEdit.js"
@@ -14,6 +14,7 @@ import SignUp from "./pages/SignUp.js"
 import "./App.css"
 
 const App = () => {
+  const navigate = useNavigate()
   const [apartments, setApartments] = useState([])
   const [user, setUser] = useState(null)
 
@@ -39,9 +40,18 @@ const App = () => {
         throw new Error(signInResponse.errors)
       }
       const payload = await signInResponse.json()
-      localStorage.setItem("token", signInResponse.headers.get("Authorization"))
-      localStorage.setItem("user", JSON.stringify(payload))
-      setUser(payload)
+      if (payload.error === "Invalid Email or password.") {
+        setUser("invalid")
+        navigate("/signin")
+      } else {
+        localStorage.setItem(
+          "token",
+          signInResponse.headers.get("Authorization")
+        )
+        localStorage.setItem("user", JSON.stringify(payload))
+        setUser(payload)
+        navigate("/")
+      }
     } catch (error) {
       console.error("Error fetching user sign in request")
     }
